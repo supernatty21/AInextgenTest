@@ -14,7 +14,7 @@ export default function Hero() {
           variant="secondary"
         >
           <Link href="#">
-            Just released v1.0.0 <ArrowUpRight className="ml-1 size-4" />
+            Just released v1.0.1 <ArrowUpRight className="ml-1 size-4" />
           </Link>
         </Badge>
 
