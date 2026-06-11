@@ -20,8 +20,9 @@ COPY --from=deps /app/node_modules ./node_modules
 
 # คัดลอก source code ทั้งหมด
 COPY . .
-
 # Generate Prisma Client (v7 ใช้ driver adapter)
+ARG DATABASE_URL=mysql://user:password@localhost:3306/build
+ENV DATABASE_URL=${DATABASE_URL}
 RUN npx prisma generate
 
 # Build Next.js application

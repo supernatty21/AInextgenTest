@@ -4,7 +4,7 @@ import { NavMenu } from "@/components/nav-menu";
 import { NavigationSheet } from "@/components/navigation-sheet";
 import Link from "next/link";
 import { Badge } from "./ui/badge";
-import { ShoppingBasket } from "lucide-react";
+import { ShoppingBasket, LayoutDashboard } from "lucide-react";
 import CountCartItem from "@/app/(front)/components/CountCartItem";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
@@ -47,6 +47,14 @@ const Navbar = async () => {
           {
             session && (
               <>
+                {session.user.role === "admin" && (
+                  <Button asChild variant="outline" size="sm">
+                    <Link href="/admin/dashboard">
+                      <LayoutDashboard className="size-3" />
+                      Dashboard
+                    </Link>
+                  </Button>
+                )}
                 <div className="flex items-center mr-4">
                   สวัสดี, {session.user.name}
                 </div>
